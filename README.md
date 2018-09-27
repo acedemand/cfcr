@@ -28,7 +28,7 @@ Some notes:
 
 - Change the main manifest (cfcr.yml) parameters according to your Bosh cloud-config. 
 
-- If Bosh Director VM doesn't have Credhub, "--vars-store=creds.yml" parameter need to be added to "bosh deploy ..." command. Kubeconfig script should be modified also. See cfcr/set-kubeconfig.sh
+- If Bosh Director VM doesn't have Credhub, "--vars-store=creds.yml" parameter need to be added to "bosh deploy ..." command. Kubeconfig script should be modified also. See cfcr/set-kubeconfig.sh. ca-cert file -which is used by set-kubeconfig script- should include tls-kubernetes/ca value of creds.yml file.
 
 
 References
