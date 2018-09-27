@@ -5,7 +5,7 @@ Bosh Director Installation Steps
 
 - Create a Ubuntu 16.04 jumpbox VM and SSH into VM
 
-- Run bosh/install-prereqs.sh script to get useful binaries to manage Bosh and related software.
+- Run install-prereqs.sh script to get useful binaries to manage Bosh and related software.
 
 - Create a cloud-config file for Bosh. See bosh/cloud-config.yml file.
 
