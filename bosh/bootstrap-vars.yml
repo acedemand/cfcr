@@ -1,0 +1,13 @@
+director_name:  bosh
+zone: ""
+internal_cidr: ""
+internal_gw: ""
+internal_ip: ""
+network: ""
+subnetwork: ""
+tags: []
+gcp_credentials_json: ""
+reserved_range_low: ""
+reserved_range_high: ""
+static_ip_range: []
+project_id: ""

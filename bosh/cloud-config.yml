@@ -1,0 +1,60 @@
+azs:
+- name: z1
+  cloud_properties:
+    zone: ((zone))
+
+vm_types:
+- name: default
+  cloud_properties:
+    machine_type: n1-standard-2
+    root_disk_size_gb: 20
+    root_disk_type: pd-ssd
+- name: large
+  cloud_properties:
+    machine_type: n1-standard-2
+    root_disk_size_gb: 50
+    root_disk_type: pd-ssd
+- name: xlarge
+  cloud_properties:
+    machine_type: n1-standard-2
+    root_disk_size_gb: 250
+    root_disk_type: pd-ssd
+
+disk_types:
+- name: default
+  disk_size: 3000
+- name: large
+  disk_size: 50_000
+- name: xlarge
+  disk_size: 250_000
+
+networks:
+- name: external
+  type: vip
+- name: default
+  type: manual
+  subnets:
+  - range: ((internal_cidr))
+    gateway: ((internal_gw))
+    azs: [z1]
+    dns: [8.8.8.8]
+    static: ((static_ip_range))
+    reserved:
+    - ((reserved_range_low))
+    - ((reserved_range_high))
+    cloud_properties:
+      network_name: ((network))
+      subnetwork_name: ((subnetwork))
+      ephemeral_external_ip: true
+      tags: ((tags))
+
+compilation:
+  workers: 5
+  reuse_compilation_vms: true
+  az: z1
+  vm_type: default
+  network: default
+
+vm_extensions:
+- name: cfcr-master-loadbalancer
+
