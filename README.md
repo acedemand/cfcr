@@ -1,7 +1,7 @@
-# cfcr
+# CFCR
 Installing Bosh Director and Deploying CFCR (Kubo)
 
-Bosh Director Installation Steps
+## Bosh Director Installation Steps
 
 - Create a Ubuntu 16.04 jumpbox VM and SSH into VM
 
@@ -18,7 +18,7 @@ Bosh Director Installation Steps
 - Run bosh/deploy-bosh.sh script. This will create Bosh VM and install necessary binaries. Now Bosh can be used to deploy CFCR.
 
 
-CFCR Deployment Steps
+## CFCR Deployment Steps
 
 The steps in the link below are clear to deploy CFCR.
 
@@ -30,10 +30,16 @@ Some notes:
 
 - If Bosh Director VM doesn't have Credhub, "--vars-store=creds.yml" parameter need to be added to "bosh deploy ..." command. Kubeconfig script should be modified also. See cfcr/set-kubeconfig.sh. ca-cert file -which is used by set-kubeconfig script- should include tls-kubernetes/ca value of creds.yml file.
 
+### CFCR Troubleshooting
+
+- When worker VMS are off for multiple days, PKS Flannel network gets out of sync with docker bridge network (cni0). To resolve this follow the steps in the link below.
+
+https://community.pivotal.io/s/article/PKS-Flannel-network-gets-out-of-sync-with-docker-bridge-network-cni0
 
 References
 
 [1] https://github.com/cloudfoundry-incubator/kubo-release/#deploying-cfcr
+[2] https://community.pivotal.io
 
 
 
